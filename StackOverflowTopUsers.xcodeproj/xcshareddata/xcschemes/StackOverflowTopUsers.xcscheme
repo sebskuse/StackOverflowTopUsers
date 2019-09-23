@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "962417E62338BDA500292F98"
-               BuildableName = "StackOverflowTopUsers.app"
-               BlueprintName = "StackOverflowTopUsers"
-               ReferencedContainer = "container:WorldRemitTechTest.xcodeproj">
+               BlueprintIdentifier = "962417FC2338BDA600292F98"
+               BuildableName = "StackOverflowTopUsersTests.xctest"
+               BlueprintName = "StackOverflowTopUsersTests"
+               ReferencedContainer = "container:StackOverflowTopUsers.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
             BlueprintIdentifier = "962417E62338BDA500292F98"
             BuildableName = "StackOverflowTopUsers.app"
             BlueprintName = "StackOverflowTopUsers"
-            ReferencedContainer = "container:WorldRemitTechTest.xcodeproj">
+            ReferencedContainer = "container:StackOverflowTopUsers.xcodeproj">
          </BuildableReference>
       </CodeCoverageTargets>
       <Testables>
@@ -46,7 +46,7 @@
                BlueprintIdentifier = "962417FC2338BDA600292F98"
                BuildableName = "StackOverflowTopUsersTests.xctest"
                BlueprintName = "StackOverflowTopUsersTests"
-               ReferencedContainer = "container:WorldRemitTechTest.xcodeproj">
+               ReferencedContainer = "container:StackOverflowTopUsers.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -68,7 +68,7 @@
             BlueprintIdentifier = "962417E62338BDA500292F98"
             BuildableName = "StackOverflowTopUsers.app"
             BlueprintName = "StackOverflowTopUsers"
-            ReferencedContainer = "container:WorldRemitTechTest.xcodeproj">
+            ReferencedContainer = "container:StackOverflowTopUsers.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -78,16 +78,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "962417E62338BDA500292F98"
-            BuildableName = "StackOverflowTopUsers.app"
-            BlueprintName = "StackOverflowTopUsers"
-            ReferencedContainer = "container:WorldRemitTechTest.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
