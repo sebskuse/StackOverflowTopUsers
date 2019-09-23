@@ -40,6 +40,8 @@
 		962418642338F92A00292F98 /* ProfileImageContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962418632338F92A00292F98 /* ProfileImageContext.swift */; };
 		962418662338FE6700292F98 /* ProfileImageContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962418652338FE6700292F98 /* ProfileImageContextTests.swift */; };
 		962418682339006C00292F98 /* sampleProfilePic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 962418672339006C00292F98 /* sampleProfilePic.jpg */; };
+		9624186A2339033E00292F98 /* UserCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962418692339033E00292F98 /* UserCellTests.swift */; };
+		9624186C2339035F00292F98 /* NibLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9624186B2339035F00292F98 /* NibLoading.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +105,8 @@
 		962418632338F92A00292F98 /* ProfileImageContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageContext.swift; sourceTree = "<group>"; };
 		962418652338FE6700292F98 /* ProfileImageContextTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageContextTests.swift; sourceTree = "<group>"; };
 		962418672339006C00292F98 /* sampleProfilePic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = sampleProfilePic.jpg; path = WorldRemitTechTestTests/sampleProfilePic.jpg; sourceTree = SOURCE_ROOT; };
+		962418692339033E00292F98 /* UserCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellTests.swift; sourceTree = "<group>"; };
+		9624186B2339035F00292F98 /* NibLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoading.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +172,7 @@
 				962418552338E15700292F98 /* Home */,
 				962418032338BDA600292F98 /* Info.plist */,
 				962418172338BF4700292F98 /* TestHelpers.swift */,
+				9624186B2339035F00292F98 /* NibLoading.swift */,
 			);
 			path = WorldRemitTechTestTests;
 			sourceTree = "<group>";
@@ -263,6 +268,7 @@
 			children = (
 				9624184C2338DB7300292F98 /* HomeViewModelTests.swift */,
 				962418532338E15300292F98 /* HomeViewControllerTests.swift */,
+				962418692339033E00292F98 /* UserCellTests.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -457,12 +463,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9624186C2339035F00292F98 /* NibLoading.swift in Sources */,
 				962418442338D87900292F98 /* TopUsersContextTests.swift in Sources */,
 				962418162338BE0500292F98 /* ResponseParsingTests.swift in Sources */,
 				9624184F2338DBBA00292F98 /* MockTopUsersRetrieving.swift in Sources */,
 				962418542338E15300292F98 /* HomeViewControllerTests.swift in Sources */,
 				9624183F2338D62D00292F98 /* TopUsersRequestTests.swift in Sources */,
 				962418662338FE6700292F98 /* ProfileImageContextTests.swift in Sources */,
+				9624186A2339033E00292F98 /* UserCellTests.swift in Sources */,
 				962418412338D84800292F98 /* MockSession.swift in Sources */,
 				962418182338BF4700292F98 /* TestHelpers.swift in Sources */,
 				9624184D2338DB7300292F98 /* HomeViewModelTests.swift in Sources */,
