@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		962417EB2338BDA500292F98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962417EA2338BDA500292F98 /* AppDelegate.swift */; };
-		962417ED2338BDA500292F98 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962417EC2338BDA500292F98 /* SceneDelegate.swift */; };
 		962417EF2338BDA500292F98 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962417EE2338BDA500292F98 /* ViewController.swift */; };
 		962417F22338BDA500292F98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 962417F02338BDA500292F98 /* Main.storyboard */; };
 		962417F42338BDA500292F98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 962417F32338BDA500292F98 /* Assets.xcassets */; };
 		962417F72338BDA500292F98 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 962417F52338BDA500292F98 /* LaunchScreen.storyboard */; };
-		962418022338BDA600292F98 /* WorldRemitTechTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962418012338BDA600292F98 /* WorldRemitTechTestTests.swift */; };
+		962418112338BDB400292F98 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9624180D2338BDB400292F98 /* Session.swift */; };
+		962418122338BDB400292F98 /* SessionErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9624180E2338BDB400292F98 /* SessionErrors.swift */; };
+		962418132338BDB400292F98 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9624180F2338BDB400292F98 /* Request.swift */; };
+		962418142338BDB400292F98 /* ResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962418102338BDB400292F98 /* ResponseParser.swift */; };
+		962418162338BE0500292F98 /* ResponseParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962418152338BE0500292F98 /* ResponseParsingTests.swift */; };
+		962418182338BF4700292F98 /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962418172338BF4700292F98 /* TestHelpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,15 +33,19 @@
 /* Begin PBXFileReference section */
 		962417E72338BDA500292F98 /* WorldRemitTechTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldRemitTechTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		962417EA2338BDA500292F98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		962417EC2338BDA500292F98 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		962417EE2338BDA500292F98 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		962417F12338BDA500292F98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		962417F32338BDA500292F98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		962417F62338BDA500292F98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		962417F82338BDA500292F98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		962417FD2338BDA600292F98 /* WorldRemitTechTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorldRemitTechTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		962418012338BDA600292F98 /* WorldRemitTechTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldRemitTechTestTests.swift; sourceTree = "<group>"; };
 		962418032338BDA600292F98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9624180D2338BDB400292F98 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		9624180E2338BDB400292F98 /* SessionErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionErrors.swift; sourceTree = "<group>"; };
+		9624180F2338BDB400292F98 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		962418102338BDB400292F98 /* ResponseParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseParser.swift; sourceTree = "<group>"; };
+		962418152338BE0500292F98 /* ResponseParsingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseParsingTests.swift; sourceTree = "<group>"; };
+		962418172338BF4700292F98 /* TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,8 +87,8 @@
 		962417E92338BDA500292F98 /* WorldRemitTechTest */ = {
 			isa = PBXGroup;
 			children = (
+				9624180C2338BDB400292F98 /* Client */,
 				962417EA2338BDA500292F98 /* AppDelegate.swift */,
-				962417EC2338BDA500292F98 /* SceneDelegate.swift */,
 				962417EE2338BDA500292F98 /* ViewController.swift */,
 				962417F02338BDA500292F98 /* Main.storyboard */,
 				962417F32338BDA500292F98 /* Assets.xcassets */,
@@ -93,10 +101,22 @@
 		962418002338BDA600292F98 /* WorldRemitTechTestTests */ = {
 			isa = PBXGroup;
 			children = (
-				962418012338BDA600292F98 /* WorldRemitTechTestTests.swift */,
 				962418032338BDA600292F98 /* Info.plist */,
+				962418152338BE0500292F98 /* ResponseParsingTests.swift */,
+				962418172338BF4700292F98 /* TestHelpers.swift */,
 			);
 			path = WorldRemitTechTestTests;
+			sourceTree = "<group>";
+		};
+		9624180C2338BDB400292F98 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				9624180D2338BDB400292F98 /* Session.swift */,
+				9624180E2338BDB400292F98 /* SessionErrors.swift */,
+				9624180F2338BDB400292F98 /* Request.swift */,
+				962418102338BDB400292F98 /* ResponseParser.swift */,
+			);
+			path = Client;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -106,6 +126,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 962418062338BDA600292F98 /* Build configuration list for PBXNativeTarget "WorldRemitTechTest" */;
 			buildPhases = (
+				962418192338C03C00292F98 /* Swiftlint */,
+				9624181A2338C04B00292F98 /* Swiftformat */,
 				962417E32338BDA500292F98 /* Sources */,
 				962417E42338BDA500292F98 /* Frameworks */,
 				962417E52338BDA500292F98 /* Resources */,
@@ -195,14 +217,56 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		962418192338C03C00292F98 /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		9624181A2338C04B00292F98 /* Swiftformat */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Swiftformat;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftformat >/dev/null; then\nswiftformat .\nelse\necho \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		962417E32338BDA500292F98 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				962418112338BDB400292F98 /* Session.swift in Sources */,
+				962418132338BDB400292F98 /* Request.swift in Sources */,
+				962418122338BDB400292F98 /* SessionErrors.swift in Sources */,
 				962417EF2338BDA500292F98 /* ViewController.swift in Sources */,
 				962417EB2338BDA500292F98 /* AppDelegate.swift in Sources */,
-				962417ED2338BDA500292F98 /* SceneDelegate.swift in Sources */,
+				962418142338BDB400292F98 /* ResponseParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,7 +274,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				962418022338BDA600292F98 /* WorldRemitTechTestTests.swift in Sources */,
+				962418162338BE0500292F98 /* ResponseParsingTests.swift in Sources */,
+				962418182338BF4700292F98 /* TestHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,6 +430,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 32S28VR3SV;
 				INFOPLIST_FILE = WorldRemitTechTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -383,6 +449,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 32S28VR3SV;
 				INFOPLIST_FILE = WorldRemitTechTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

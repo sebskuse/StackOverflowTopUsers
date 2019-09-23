@@ -1,0 +1,26 @@
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - .build
+  - Carthage
+  - CuvvaTechTest/Views/CircularProgressView.swift
+
+disabled_rules: # rule identifiers to exclude from running
+  # Dealt with by swiftformat
+  - trailing_whitespace
+  - trailing_newline
+  - vertical_whitespace
+  - operator_whitespace
+  - return_arrow_whitespace
+  - trailing_semicolon
+  - closure_spacing
+  - comma
+  - closing_brace
+  - opening_brace
+  - leading_whitespace
+  - trailing_comma
+  - function_parameter_count
+  - todo
+  - line_length
+  - notification_center_detachment
+  - nesting
+  - unused_setter_value
+  - switch_case_alignment
