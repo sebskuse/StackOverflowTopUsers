@@ -91,10 +91,17 @@ class UserCellTests: XCTestCase {
     func testTheCellStateIsConfiguredCorrectlyForFollowing() {
         cell.viewModel.model = UserState(user: User(displayName: "Test", profileImage: testURL(), reputation: 1), state: .following)
         XCTAssertEqual(cell.accessoryType, .checkmark)
+        XCTAssertEqual(cell.backgroundColor, .white)
     }
 
     func testTheCellStateIsConfiguredCorrectlyForUnfollowing() {
         cell.viewModel.model = UserState(user: User(displayName: "Test", profileImage: testURL(), reputation: 1), state: .notFollowing)
         XCTAssertEqual(cell.accessoryType, .none)
+        XCTAssertEqual(cell.backgroundColor, .white)
+    }
+
+    func testTheCellIsGreyedOutForBlocked() {
+        cell.viewModel.model = UserState(user: User(displayName: "Test", profileImage: testURL(), reputation: 1), state: .blocked)
+        XCTAssertEqual(cell.backgroundColor, .gray)
     }
 }

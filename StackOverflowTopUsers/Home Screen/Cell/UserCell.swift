@@ -19,6 +19,7 @@ class UserCellViewModel {
     let expanded = Bindable<Bool>(false)
     let followAction = Bindable<String?>(nil)
     let isFollowing = Bindable<Bool>(false)
+    let isBlocked = Bindable<Bool>(false)
 
     var model: UserState? {
         didSet {
@@ -28,12 +29,17 @@ class UserCellViewModel {
             expanded.value = user.expanded
 
             switch user.state {
-            case .notFollowing, .blocked:
+            case .notFollowing:
                 followAction.value = "Follow"
                 isFollowing.value = false
+                isBlocked.value = false
             case .following:
                 followAction.value = "Unfollow"
                 isFollowing.value = true
+                isBlocked.value = false
+            case .blocked:
+                isFollowing.value = false
+                isBlocked.value = true
             }
 
             cancellable = imageContext.profileImage(for: user.user, completion: { [weak self] res in
@@ -100,6 +106,10 @@ class UserCell: UITableViewCell {
 
         viewModel.isFollowing.update = { [weak self] following in
             self?.accessoryType = following ? .checkmark : .none
+        }
+
+        viewModel.isBlocked.update = { [weak self] blocked in
+            self?.backgroundColor = blocked ? .gray : .white
         }
     }
 
