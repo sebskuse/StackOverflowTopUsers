@@ -39,9 +39,12 @@
 		962418612338F78D00292F98 /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962418602338F78D00292F98 /* ProfileImage.swift */; };
 		962418642338F92A00292F98 /* ProfileImageContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962418632338F92A00292F98 /* ProfileImageContext.swift */; };
 		962418662338FE6700292F98 /* ProfileImageContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962418652338FE6700292F98 /* ProfileImageContextTests.swift */; };
-		962418682339006C00292F98 /* sampleProfilePic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 962418672339006C00292F98 /* sampleProfilePic.jpg */; };
 		9624186A2339033E00292F98 /* UserCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962418692339033E00292F98 /* UserCellTests.swift */; };
 		9624186C2339035F00292F98 /* NibLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9624186B2339035F00292F98 /* NibLoading.swift */; };
+		962418712339108600292F98 /* UserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962418702339108600292F98 /* UserState.swift */; };
+		962418732339126600292F98 /* sampleProfilePic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 962418722339126600292F98 /* sampleProfilePic.jpg */; };
+		962418752339128900292F98 /* MockProfileImageRetrieving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962418742339128900292F98 /* MockProfileImageRetrieving.swift */; };
+		962418772339132000292F98 /* MockUserCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962418762339132000292F98 /* MockUserCellDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,9 +107,12 @@
 		962418602338F78D00292F98 /* ProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
 		962418632338F92A00292F98 /* ProfileImageContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageContext.swift; sourceTree = "<group>"; };
 		962418652338FE6700292F98 /* ProfileImageContextTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageContextTests.swift; sourceTree = "<group>"; };
-		962418672339006C00292F98 /* sampleProfilePic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = sampleProfilePic.jpg; path = WorldRemitTechTestTests/sampleProfilePic.jpg; sourceTree = SOURCE_ROOT; };
 		962418692339033E00292F98 /* UserCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellTests.swift; sourceTree = "<group>"; };
 		9624186B2339035F00292F98 /* NibLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoading.swift; sourceTree = "<group>"; };
+		962418702339108600292F98 /* UserState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserState.swift; sourceTree = "<group>"; };
+		962418722339126600292F98 /* sampleProfilePic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sampleProfilePic.jpg; sourceTree = "<group>"; };
+		962418742339128900292F98 /* MockProfileImageRetrieving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProfileImageRetrieving.swift; sourceTree = "<group>"; };
+		962418762339132000292F98 /* MockUserCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserCellDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,7 +207,7 @@
 		962418202338C66200292F98 /* Test Data */ = {
 			isa = PBXGroup;
 			children = (
-				962418672339006C00292F98 /* sampleProfilePic.jpg */,
+				962418722339126600292F98 /* sampleProfilePic.jpg */,
 				962418212338C67600292F98 /* UsersResponse.json */,
 			);
 			path = "Test Data";
@@ -249,6 +255,8 @@
 			children = (
 				962418402338D84800292F98 /* MockSession.swift */,
 				9624184E2338DBBA00292F98 /* MockTopUsersRetrieving.swift */,
+				962418742339128900292F98 /* MockProfileImageRetrieving.swift */,
+				962418762339132000292F98 /* MockUserCellDelegate.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -259,6 +267,7 @@
 				962418482338DA6200292F98 /* UserCell.xib */,
 				9624184A2338DA6D00292F98 /* UserCell.swift */,
 				962418632338F92A00292F98 /* ProfileImageContext.swift */,
+				962418702339108600292F98 /* UserState.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -387,7 +396,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				962418682339006C00292F98 /* sampleProfilePic.jpg in Resources */,
+				962418732339126600292F98 /* sampleProfilePic.jpg in Resources */,
 				962418222338C67600292F98 /* UsersResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -448,6 +457,7 @@
 				962418612338F78D00292F98 /* ProfileImage.swift in Sources */,
 				962417EF2338BDA500292F98 /* HomeViewController.swift in Sources */,
 				9624181F2338C5C300292F98 /* User.swift in Sources */,
+				962418712339108600292F98 /* UserState.swift in Sources */,
 				9624185D2338F54500292F98 /* ProfileImageRequest.swift in Sources */,
 				962418642338F92A00292F98 /* ProfileImageContext.swift in Sources */,
 				962417EB2338BDA500292F98 /* AppDelegate.swift in Sources */,
@@ -466,11 +476,13 @@
 				9624186C2339035F00292F98 /* NibLoading.swift in Sources */,
 				962418442338D87900292F98 /* TopUsersContextTests.swift in Sources */,
 				962418162338BE0500292F98 /* ResponseParsingTests.swift in Sources */,
+				962418772339132000292F98 /* MockUserCellDelegate.swift in Sources */,
 				9624184F2338DBBA00292F98 /* MockTopUsersRetrieving.swift in Sources */,
 				962418542338E15300292F98 /* HomeViewControllerTests.swift in Sources */,
 				9624183F2338D62D00292F98 /* TopUsersRequestTests.swift in Sources */,
 				962418662338FE6700292F98 /* ProfileImageContextTests.swift in Sources */,
 				9624186A2339033E00292F98 /* UserCellTests.swift in Sources */,
+				962418752339128900292F98 /* MockProfileImageRetrieving.swift in Sources */,
 				962418412338D84800292F98 /* MockSession.swift in Sources */,
 				962418182338BF4700292F98 /* TestHelpers.swift in Sources */,
 				9624184D2338DB7300292F98 /* HomeViewModelTests.swift in Sources */,
@@ -669,14 +681,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 32S28VR3SV;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = WorldRemitTechTestTests/Info.plist;
+				INFOPLIST_FILE = StackOverflowTopUsersTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sebskuse.WorldRemitTechTestTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sebskuse.StackOverflowTopUsersTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -692,14 +704,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 32S28VR3SV;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = WorldRemitTechTestTests/Info.plist;
+				INFOPLIST_FILE = StackOverflowTopUsersTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sebskuse.WorldRemitTechTestTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sebskuse.StackOverflowTopUsersTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

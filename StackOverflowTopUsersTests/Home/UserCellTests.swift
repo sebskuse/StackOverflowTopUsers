@@ -13,14 +13,18 @@ class UserCellTests: XCTestCase {
     var cell: UserCell!
     var imageRetriever: MockProfileImageRetrieving!
     var cancellable: MockCancellable!
+    // swiftlint:disable:next weak_delegate
+    var delegate: MockUserCellDelegate!
 
     override func setUp() {
         super.setUp()
+        delegate = MockUserCellDelegate()
         cancellable = MockCancellable()
         imageRetriever = MockProfileImageRetrieving()
         imageRetriever.vendedCancellable = cancellable
         cell = UserCell.loadFromNib()
         cell.viewModel = UserCellViewModel(imageContext: imageRetriever)
+        cell.delegate = delegate
     }
 
     override func tearDown() {
@@ -28,6 +32,7 @@ class UserCellTests: XCTestCase {
         cell = nil
         imageRetriever = nil
         cancellable = nil
+        delegate = nil
     }
 
     func testWhenAUserIsSetTheProfileImageIsRetrieved() {
@@ -58,20 +63,38 @@ class UserCellTests: XCTestCase {
         cell.viewModel.model = UserState(user: User(displayName: "Test", profileImage: testURL(), reputation: 1), state: .following)
         XCTAssertEqual(cell.followActionButton.currentTitle, "Unfollow")
     }
-}
 
-class MockProfileImageRetrieving: ProfileImageRetrieving {
-    private(set) var receivedUser: User?
-    private(set) var receivedCompletion: ((Result<UIImage, Error>) -> Void)?
+    func testTappingTheBlockButtonSendsTheAppropriateMessage() {
+        cell.viewModel.model = UserState(user: User(displayName: "Test", profileImage: testURL(), reputation: 1), state: .following)
+        cell.blockButton.sendActions(for: .primaryActionTriggered)
+        XCTAssertEqual(delegate.receivedCall, .block)
+        XCTAssertEqual(delegate.receivedCell, cell)
+        XCTAssertEqual(delegate.receivedUser?.displayName, "Test")
+    }
 
-    var vendedCancellable: Cancellable?
+    func testTappingTheFollowButtonSendsTheAppropriateMessage() {
+        cell.viewModel.model = UserState(user: User(displayName: "Test", profileImage: testURL(), reputation: 1), state: .following)
+        cell.followActionButton.sendActions(for: .primaryActionTriggered)
+        XCTAssertEqual(delegate.receivedCall, .unfollow)
+        XCTAssertEqual(delegate.receivedCell, cell)
+        XCTAssertEqual(delegate.receivedUser?.displayName, "Test")
+    }
 
-    func profileImage(for user: User, completion: @escaping (Result<UIImage, Error>) -> Void) -> Cancellable {
-        receivedUser = user
-        receivedCompletion = completion
-        guard let cancellable = vendedCancellable else {
-            fatalError("No cancellable set on profile image retriever")
-        }
-        return cancellable
+    func testTappingTheUnfollowButtonSendsTheAppropriateMessage() {
+        cell.viewModel.model = UserState(user: User(displayName: "Test", profileImage: testURL(), reputation: 1), state: .notFollowing)
+        cell.followActionButton.sendActions(for: .primaryActionTriggered)
+        XCTAssertEqual(delegate.receivedCall, .follow)
+        XCTAssertEqual(delegate.receivedCell, cell)
+        XCTAssertEqual(delegate.receivedUser?.displayName, "Test")
+    }
+
+    func testTheCellStateIsConfiguredCorrectlyForFollowing() {
+        cell.viewModel.model = UserState(user: User(displayName: "Test", profileImage: testURL(), reputation: 1), state: .following)
+        XCTAssertEqual(cell.accessoryType, .checkmark)
+    }
+
+    func testTheCellStateIsConfiguredCorrectlyForUnfollowing() {
+        cell.viewModel.model = UserState(user: User(displayName: "Test", profileImage: testURL(), reputation: 1), state: .notFollowing)
+        XCTAssertEqual(cell.accessoryType, .none)
     }
 }

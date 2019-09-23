@@ -9,28 +9,6 @@
 import Foundation
 import UIKit
 
-/// This would obviously be a network call usually, rather than
-/// just setting bools on this. I prefer to have immutable models,
-/// so ideally the API would return the new user object which I can
-/// just replace the local copy with to update the UI with.
-class UserState {
-    enum State {
-        case notFollowing
-        case following
-        case blocked
-    }
-
-    let user: User
-    var expanded: Bool
-    var state: State
-
-    init(user: User, expanded: Bool = false, state: State = .notFollowing) {
-        self.user = user
-        self.expanded = expanded
-        self.state = state
-    }
-}
-
 class UserCellViewModel {
     private let imageContext: ProfileImageRetrieving
     private var cancellable: Cancellable?
@@ -40,6 +18,7 @@ class UserCellViewModel {
     let profileImage = Bindable<UIImage?>(nil)
     let expanded = Bindable<Bool>(false)
     let followAction = Bindable<String?>(nil)
+    let isFollowing = Bindable<Bool>(false)
 
     var model: UserState? {
         didSet {
@@ -47,14 +26,15 @@ class UserCellViewModel {
             username.value = user.user.displayName
             reputation.value = "Reputation: \(String(describing: user.user.reputation))"
             expanded.value = user.expanded
-            followAction.value = { () -> String in
-                switch user.state {
-                case .notFollowing, .blocked:
-                    return "Follow"
-                case .following:
-                    return "Unfollow"
-                }
-            }()
+
+            switch user.state {
+            case .notFollowing, .blocked:
+                followAction.value = "Follow"
+                isFollowing.value = false
+            case .following:
+                followAction.value = "Unfollow"
+                isFollowing.value = true
+            }
 
             cancellable = imageContext.profileImage(for: user.user, completion: { [weak self] res in
                 self?.profileImage.value = try? res.get()
@@ -86,10 +66,15 @@ class UserCell: UITableViewCell {
         }
     }
 
+    weak var delegate: UserCellDelegate?
+
     override func awakeFromNib() {
         super.awakeFromNib()
 
         bindViewModel()
+
+        blockButton.addTarget(self, action: #selector(blockUser), for: .primaryActionTriggered)
+        followActionButton.addTarget(self, action: #selector(updateFollowStatus), for: .primaryActionTriggered)
     }
 
     private func bindViewModel() {
@@ -112,10 +97,39 @@ class UserCell: UITableViewCell {
         viewModel.followAction.update = { [weak self] action in
             self?.followActionButton.setTitle(action, for: .normal)
         }
+
+        viewModel.isFollowing.update = { [weak self] following in
+            self?.accessoryType = following ? .checkmark : .none
+        }
     }
 
     override func prepareForReuse() {
         super.prepareForReuse()
         viewModel.prepareForReuse()
     }
+
+    @IBAction func blockUser() {
+        guard let user = viewModel.model?.user else { return }
+        delegate?.userCell(self, requestingBlockUser: user)
+    }
+
+    @IBAction func updateFollowStatus() {
+        guard let container = viewModel.model else { return }
+        switch container.state {
+        case .notFollowing:
+            delegate?.userCell(self, requestingFollowUser: container.user)
+        case .following:
+            delegate?.userCell(self, requestingUnfollowUser: container.user)
+        case .blocked:
+            return
+        }
+    }
+}
+
+protocol UserCellDelegate: AnyObject {
+    func userCell(_ cell: UserCell, requestingBlockUser user: User)
+
+    func userCell(_ cell: UserCell, requestingFollowUser user: User)
+
+    func userCell(_ cell: UserCell, requestingUnfollowUser user: User)
 }
