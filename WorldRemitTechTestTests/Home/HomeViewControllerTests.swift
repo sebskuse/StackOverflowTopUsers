@@ -6,7 +6,6 @@
 //  Copyright © 2019 Seb Skuse. All rights reserved.
 //
 
-import Nimble
 @testable import WorldRemitTechTest
 import XCTest
 
@@ -33,26 +32,26 @@ class HomeViewControllerTests: XCTestCase {
     }
 
     func testWhenTheViewControllerLoadsTheListOfUsersIsRetrieved() {
-        expect(self.mockContext.receivedCompletion).to(beNil())
+        XCTAssertNil(mockContext.receivedCompletion)
         viewController.loadViewIfNeeded()
-        expect(self.mockContext.receivedCompletion).notTo(beNil())
-        expect(self.viewController.loadingSpinner.isAnimating).to(beTrue())
+        XCTAssertNotNil(mockContext.receivedCompletion)
+        XCTAssertTrue(viewController.loadingSpinner.isAnimating)
     }
 
     func testWhenAnErrorIsReceivedTheErrorLabelShowsTheErrorAndHidesTheTable() {
         viewController.loadViewIfNeeded()
-        expect(self.viewController.errorLabel.isHidden).to(beTrue())
+        XCTAssertTrue(viewController.errorLabel.isHidden)
         mockContext.receivedCompletion?(.failure(MockError.test))
-        expect(self.viewController.errorLabel.isHidden).to(beFalse())
-        expect(self.viewController.errorLabel.text).to(equal("Mock Error"))
-        expect(self.viewController.tableView.isHidden).to(beTrue())
+        XCTAssertFalse(viewController.errorLabel.isHidden)
+        XCTAssertEqual(viewController.errorLabel.text, "Mock Error")
+        XCTAssertTrue(viewController.tableView.isHidden)
     }
 
     func testWhenUsersAreRetrievedItClearAnyPreExistingError() {
         viewController.viewModel.error.value = DisplayableError(message: "Error", underlying: MockError.test)
         viewController.loadViewIfNeeded()
         mockContext.receivedCompletion?(.success([User(displayName: "Test", profileImage: testURL(), reputation: 1)]))
-        expect(self.viewController.errorLabel.isHidden).to(beTrue())
-        expect(self.viewController.errorLabel.text).to(beNil())
+        XCTAssertTrue(viewController.errorLabel.isHidden)
+        XCTAssertNil(viewController.errorLabel.text)
     }
 }

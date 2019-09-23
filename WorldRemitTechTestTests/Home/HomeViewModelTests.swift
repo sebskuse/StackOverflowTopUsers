@@ -6,7 +6,6 @@
 //  Copyright © 2019 Seb Skuse. All rights reserved.
 //
 
-import Nimble
 @testable import WorldRemitTechTest
 import XCTest
 
@@ -27,29 +26,29 @@ class HomeViewModelTests: XCTestCase {
     }
 
     func testRetrievingUsersUpdatesTheUsersPropertyAndLoadingState() {
-        expect(self.viewModel.isLoading.value).to(beFalse())
+        XCTAssertFalse(viewModel.isLoading.value)
         viewModel.fetchUsers()
-        expect(self.viewModel.isLoading.value).to(beTrue())
-        expect(self.context.receivedCompletion).notTo(beNil())
+        XCTAssertTrue(viewModel.isLoading.value)
+        XCTAssertNotNil(context.receivedCompletion)
         context.receivedCompletion?(.success([User(displayName: "Test", profileImage: testURL(), reputation: 1)]))
-        expect(self.viewModel.isLoading.value).to(beFalse())
-        expect(self.viewModel.users.value).to(haveCount(1))
-        expect(self.viewModel.users.value.first?.displayName).to(equal("Test"))
+        XCTAssertFalse(viewModel.isLoading.value)
+        XCTAssertEqual(viewModel.users.value.count, 1)
+        XCTAssertEqual(viewModel.users.value.first?.displayName, "Test")
     }
 
     func testWhenThereIsAnErrorTheErrorPropertyIsUpdated() {
         viewModel.fetchUsers()
         context.receivedCompletion?(.failure(MockError.test))
-        expect(self.viewModel.error.value).notTo(beNil())
-        expect(self.viewModel.isLoading.value).to(beFalse())
+        XCTAssertNotNil(viewModel.error.value)
+        XCTAssertFalse(viewModel.isLoading.value)
     }
 
     func testWhenFetchingIsRetriedAfterAnErrorTheErrorIsClearedIfItIsSuccessful() {
         viewModel.error.value = DisplayableError(message: "Error", underlying: MockError.test)
         viewModel.fetchUsers()
         context.receivedCompletion?(.success([User(displayName: "Test", profileImage: testURL(), reputation: 1)]))
-        expect(self.viewModel.error.value).to(beNil())
-        expect(self.viewModel.users.value).to(haveCount(1))
+        XCTAssertNil(viewModel.error.value)
+        XCTAssertEqual(viewModel.users.value.count, 1)
     }
 }
 

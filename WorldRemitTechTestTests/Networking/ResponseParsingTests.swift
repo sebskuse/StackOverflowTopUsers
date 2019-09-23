@@ -6,7 +6,6 @@
 //  Copyright © 2019 Seb Skuse. All rights reserved.
 //
 
-import Nimble
 @testable import WorldRemitTechTest
 import XCTest
 
@@ -40,7 +39,7 @@ class ResponseParsingTests: XCTestCase {
         let data = "{}".data(using: .utf8)!
         let response: Result<EmptyResponse, Error> = parser.parse(data: data, response: testURLResponse(status: 200), error: nil)
 
-        expect(try response.get()).notTo(beNil())
+        XCTAssertNotNil(try response.get())
     }
 
     // MARK: - Non-matching types
@@ -53,7 +52,7 @@ class ResponseParsingTests: XCTestCase {
             XCTFail("Did not get an error")
             return
         }
-        expect(error as? DecodingError).notTo(beNil())
+        XCTAssertNotNil(error as? DecodingError)
     }
 
     // MARK: - Parsing users
@@ -65,10 +64,10 @@ class ResponseParsingTests: XCTestCase {
 
         let users = try response.get()
 
-        expect(users.items).to(haveCount(20))
-        expect(users.items.first?.displayName).to(equal("Jon Skeet"))
-        expect(users.items.first?.profileImage.absoluteString).to(equal("https://www.gravatar.com/avatar/6d8ebb117e8d83d74ea95fbdd0f87e13?s=128&d=identicon&r=PG"))
-        expect(users.items.first?.reputation).to(equal(1_132_941))
+        XCTAssertEqual(users.items.count, 20)
+        XCTAssertEqual(users.items.first?.displayName, "Jon Skeet")
+        XCTAssertEqual(users.items.first?.profileImage.absoluteString, "https://www.gravatar.com/avatar/6d8ebb117e8d83d74ea95fbdd0f87e13?s=128&d=identicon&r=PG")
+        XCTAssertEqual(users.items.first?.reputation, 1_132_941)
     }
 
     // MARK: - Errors
@@ -89,7 +88,7 @@ class ResponseParsingTests: XCTestCase {
             XCTFail("Did not receive a server error")
             return
         }
-        expect(code).to(equal(500))
+        XCTAssertEqual(code, 500)
     }
 }
 

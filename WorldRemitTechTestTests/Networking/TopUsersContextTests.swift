@@ -6,7 +6,6 @@
 //  Copyright © 2019 Seb Skuse. All rights reserved.
 //
 
-import Nimble
 @testable import WorldRemitTechTest
 import XCTest
 
@@ -28,7 +27,7 @@ class TopUsersContextTests: XCTestCase {
 
     func testRetrievingUsersMakesTheCorrectRequest() {
         context.retrieveTopUsers(completion: { _ in })
-        expect(self.session.receivedRequest).to(beAKindOf(TopUsersRequest.self))
+        XCTAssertNotNil(session.receivedRequest as? TopUsersRequest)
     }
 
     func testRetrievingUsersReturnsTheUsersResponseUsersPayload() throws {
@@ -40,7 +39,7 @@ class TopUsersContextTests: XCTestCase {
         let response = UsersResponse(items: [user])
         session.receivedCompletion?(.success(response))
         let users = try result?.get()
-        expect(users).to(haveCount(1))
-        expect(users?.first?.displayName).to(equal("Test User"))
+        XCTAssertEqual(users?.count, 1)
+        XCTAssertEqual(users?.first?.displayName, "Test User")
     }
 }

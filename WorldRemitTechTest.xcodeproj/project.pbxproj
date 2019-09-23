@@ -27,7 +27,6 @@
 		962418322338C85B00292F98 /* Differ.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 962418292338C77E00292F98 /* Differ.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		962418332338C85D00292F98 /* ReactiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9624182B2338C78700292F98 /* ReactiveKit.framework */; };
 		962418342338C85D00292F98 /* ReactiveKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9624182B2338C78700292F98 /* ReactiveKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		962418362338CA2D00292F98 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 962418252338C75D00292F98 /* Nimble.framework */; };
 		962418392338CE7A00292F98 /* TopUsersContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962418382338CE7A00292F98 /* TopUsersContext.swift */; };
 		9624183D2338D0CB00292F98 /* TopUsersRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9624183C2338D0CB00292F98 /* TopUsersRequest.swift */; };
 		9624183F2338D62D00292F98 /* TopUsersRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9624183E2338D62D00292F98 /* TopUsersRequestTests.swift */; };
@@ -87,7 +86,6 @@
 		9624181C2338C5B700292F98 /* UsersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersResponse.swift; sourceTree = "<group>"; };
 		9624181E2338C5C300292F98 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		962418212338C67600292F98 /* UsersResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = UsersResponse.json; sourceTree = "<group>"; };
-		962418252338C75D00292F98 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		962418272338C77100292F98 /* Bond.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bond.framework; path = Carthage/Build/iOS/Bond.framework; sourceTree = "<group>"; };
 		962418292338C77E00292F98 /* Differ.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Differ.framework; path = Carthage/Build/iOS/Differ.framework; sourceTree = "<group>"; };
 		9624182B2338C78700292F98 /* ReactiveKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveKit.framework; path = Carthage/Build/iOS/ReactiveKit.framework; sourceTree = "<group>"; };
@@ -120,7 +118,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				962418362338CA2D00292F98 /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,7 +206,6 @@
 				9624182B2338C78700292F98 /* ReactiveKit.framework */,
 				962418292338C77E00292F98 /* Differ.framework */,
 				962418272338C77100292F98 /* Bond.framework */,
-				962418252338C75D00292F98 /* Nimble.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
