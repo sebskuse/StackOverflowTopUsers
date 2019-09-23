@@ -10,11 +10,11 @@
 import XCTest
 
 class ResponseParsingTests: XCTestCase {
-    var parser: StandardResponseParser!
+    var parser: StandardResponseParser.Type!
 
     override func setUp() {
         super.setUp()
-        parser = StandardResponseParser()
+        parser = StandardResponseParser.self
     }
 
     override func tearDown() {

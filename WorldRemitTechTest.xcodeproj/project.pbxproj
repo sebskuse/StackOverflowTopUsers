@@ -15,7 +15,7 @@
 		962418112338BDB400292F98 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9624180D2338BDB400292F98 /* Session.swift */; };
 		962418122338BDB400292F98 /* SessionErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9624180E2338BDB400292F98 /* SessionErrors.swift */; };
 		962418132338BDB400292F98 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9624180F2338BDB400292F98 /* Request.swift */; };
-		962418142338BDB400292F98 /* ResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962418102338BDB400292F98 /* ResponseParser.swift */; };
+		962418142338BDB400292F98 /* Parsable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962418102338BDB400292F98 /* Parsable.swift */; };
 		962418162338BE0500292F98 /* ResponseParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962418152338BE0500292F98 /* ResponseParsingTests.swift */; };
 		962418182338BF4700292F98 /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962418172338BF4700292F98 /* TestHelpers.swift */; };
 		9624181D2338C5B700292F98 /* UsersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9624181C2338C5B700292F98 /* UsersResponse.swift */; };
@@ -34,6 +34,8 @@
 		962418542338E15300292F98 /* HomeViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962418532338E15300292F98 /* HomeViewControllerTests.swift */; };
 		962418582338ED9800292F98 /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962418572338ED9800292F98 /* Bindable.swift */; };
 		9624185B2338F21F00292F98 /* UITableView+Dequeue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9624185A2338F21F00292F98 /* UITableView+Dequeue.swift */; };
+		9624185D2338F54500292F98 /* ProfileImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9624185C2338F54500292F98 /* ProfileImageRequest.swift */; };
+		9624185F2338F73800292F98 /* StandardResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9624185E2338F73800292F98 /* StandardResponseParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,7 +74,7 @@
 		9624180D2338BDB400292F98 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		9624180E2338BDB400292F98 /* SessionErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionErrors.swift; sourceTree = "<group>"; };
 		9624180F2338BDB400292F98 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
-		962418102338BDB400292F98 /* ResponseParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseParser.swift; sourceTree = "<group>"; };
+		962418102338BDB400292F98 /* Parsable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parsable.swift; sourceTree = "<group>"; };
 		962418152338BE0500292F98 /* ResponseParsingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseParsingTests.swift; sourceTree = "<group>"; };
 		962418172338BF4700292F98 /* TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
 		9624181C2338C5B700292F98 /* UsersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersResponse.swift; sourceTree = "<group>"; };
@@ -91,6 +93,8 @@
 		962418532338E15300292F98 /* HomeViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerTests.swift; sourceTree = "<group>"; };
 		962418572338ED9800292F98 /* Bindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
 		9624185A2338F21F00292F98 /* UITableView+Dequeue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Dequeue.swift"; sourceTree = "<group>"; };
+		9624185C2338F54500292F98 /* ProfileImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageRequest.swift; sourceTree = "<group>"; };
+		9624185E2338F73800292F98 /* StandardResponseParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardResponseParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,7 +170,8 @@
 				9624180D2338BDB400292F98 /* Session.swift */,
 				9624180E2338BDB400292F98 /* SessionErrors.swift */,
 				9624180F2338BDB400292F98 /* Request.swift */,
-				962418102338BDB400292F98 /* ResponseParser.swift */,
+				962418102338BDB400292F98 /* Parsable.swift */,
+				9624185E2338F73800292F98 /* StandardResponseParser.swift */,
 			);
 			path = Client;
 			sourceTree = "<group>";
@@ -219,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				9624183C2338D0CB00292F98 /* TopUsersRequest.swift */,
+				9624185C2338F54500292F98 /* ProfileImageRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -417,16 +423,18 @@
 				962418462338D9C100292F98 /* HomeViewModel.swift in Sources */,
 				962418112338BDB400292F98 /* Session.swift in Sources */,
 				962418132338BDB400292F98 /* Request.swift in Sources */,
+				9624185F2338F73800292F98 /* StandardResponseParser.swift in Sources */,
 				9624185B2338F21F00292F98 /* UITableView+Dequeue.swift in Sources */,
 				962418122338BDB400292F98 /* SessionErrors.swift in Sources */,
 				962417EF2338BDA500292F98 /* HomeViewController.swift in Sources */,
 				9624181F2338C5C300292F98 /* User.swift in Sources */,
+				9624185D2338F54500292F98 /* ProfileImageRequest.swift in Sources */,
 				962417EB2338BDA500292F98 /* AppDelegate.swift in Sources */,
 				962418582338ED9800292F98 /* Bindable.swift in Sources */,
 				9624184B2338DA6D00292F98 /* UserCell.swift in Sources */,
 				9624181D2338C5B700292F98 /* UsersResponse.swift in Sources */,
 				962418392338CE7A00292F98 /* TopUsersContext.swift in Sources */,
-				962418142338BDB400292F98 /* ResponseParser.swift in Sources */,
+				962418142338BDB400292F98 /* Parsable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
