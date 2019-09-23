@@ -30,7 +30,7 @@ class HomeViewModelTests: XCTestCase {
         viewModel.fetchUsers()
         XCTAssertTrue(viewModel.isLoading.value)
         XCTAssertNotNil(context.receivedCompletion)
-        context.receivedCompletion?(.success([User(displayName: "Test", profileImage: testURL(), reputation: 1)]))
+        context.receivedCompletion?(.success([User(accountId: 1, displayName: "Test", profileImage: testURL(), reputation: 1)]))
         XCTAssertFalse(viewModel.isLoading.value)
         XCTAssertEqual(viewModel.users.value.count, 1)
         XCTAssertEqual(viewModel.users.value.first?.displayName, "Test")
@@ -46,7 +46,7 @@ class HomeViewModelTests: XCTestCase {
     func testWhenFetchingIsRetriedAfterAnErrorTheErrorIsClearedIfItIsSuccessful() {
         viewModel.error.value = DisplayableError(message: "Error", underlying: MockError.test)
         viewModel.fetchUsers()
-        context.receivedCompletion?(.success([User(displayName: "Test", profileImage: testURL(), reputation: 1)]))
+        context.receivedCompletion?(.success([User(accountId: 1, displayName: "Test", profileImage: testURL(), reputation: 1)]))
         XCTAssertNil(viewModel.error.value)
         XCTAssertEqual(viewModel.users.value.count, 1)
     }

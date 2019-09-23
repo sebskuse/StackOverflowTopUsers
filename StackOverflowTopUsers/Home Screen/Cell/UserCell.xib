@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="134" id="QP4-9r-egY" customClass="UserCell" customModule="WorldRemitTechTest" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="134" id="QP4-9r-egY" customClass="UserCell" customModule="StackOverflowTopUsers" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="134"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QP4-9r-egY" id="YO0-5C-OJj">
@@ -57,7 +57,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="bek-3u-gdL" firstAttribute="leading" secondItem="u0e-hW-lwt" secondAttribute="leading" id="1k9-dc-mlK"/>
                                     <constraint firstItem="bek-3u-gdL" firstAttribute="top" secondItem="u0e-hW-lwt" secondAttribute="top" id="SMb-dW-eQ2"/>
@@ -70,11 +70,11 @@
                                 <rect key="frame" x="0.0" y="84" width="414" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SHz-Wz-MuS">
-                                        <rect key="frame" x="8" y="8" width="189" height="34"/>
+                                        <rect key="frame" x="8" y="8" width="46" height="34"/>
                                         <state key="normal" title="Button"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8jI-54-ohr">
-                                        <rect key="frame" x="217" y="8" width="189" height="34"/>
+                                        <rect key="frame" x="74" y="8" width="46" height="34"/>
                                         <state key="normal" title="Block">
                                             <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -85,7 +85,6 @@
                                     <constraint firstItem="8jI-54-ohr" firstAttribute="leading" secondItem="SHz-Wz-MuS" secondAttribute="trailing" constant="20" id="0if-4L-56C"/>
                                     <constraint firstAttribute="bottom" secondItem="8jI-54-ohr" secondAttribute="bottom" constant="8" id="NTd-oi-A9H"/>
                                     <constraint firstAttribute="bottom" secondItem="SHz-Wz-MuS" secondAttribute="bottom" constant="8" id="VT2-pA-j4u"/>
-                                    <constraint firstAttribute="trailing" secondItem="8jI-54-ohr" secondAttribute="trailing" constant="8" id="Wgy-Qc-oaC"/>
                                     <constraint firstItem="SHz-Wz-MuS" firstAttribute="leading" secondItem="UbK-qF-7EB" secondAttribute="leading" constant="8" id="aUu-uP-YyV"/>
                                     <constraint firstItem="8jI-54-ohr" firstAttribute="width" secondItem="SHz-Wz-MuS" secondAttribute="width" id="g0a-kc-sYM"/>
                                     <constraint firstItem="SHz-Wz-MuS" firstAttribute="top" secondItem="UbK-qF-7EB" secondAttribute="top" constant="8" id="rQ4-ai-3bB"/>

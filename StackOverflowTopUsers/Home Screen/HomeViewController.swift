@@ -19,6 +19,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         UserCell.register(in: tableView)
+        dataSource.delegate = self
         tableView.dataSource = dataSource
         tableView.delegate = dataSource
 
@@ -44,34 +45,8 @@ class HomeViewController: UIViewController {
     }
 }
 
-class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
-    private var users: [UserState] = []
-
-    func setUsers(_ users: [User]) {
-        self.users = users.map { UserState(user: $0) }
-    }
-
-    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return users.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UserCell = tableView.dequeue(for: indexPath)
-        cell.viewModel.model = users[indexPath.row]
-        return cell
-    }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        users[indexPath.row].expanded.toggle()
+extension HomeViewController: HomeDataSourceDelegate {
+    func reloadRow(at indexPath: IndexPath) {
         tableView.reloadRows(at: [indexPath], with: .automatic)
-    }
-
-    func tableView(_: UITableView, heightForRowAt _: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
-
-    func tableView(_: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        let user = users[indexPath.row]
-        return user.expanded ? 100 : 80
     }
 }

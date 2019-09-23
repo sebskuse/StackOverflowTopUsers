@@ -9,6 +9,7 @@
 import Foundation
 
 struct User: Codable {
+    let accountId: Int
     let displayName: String
     let profileImage: URL
     let reputation: Int

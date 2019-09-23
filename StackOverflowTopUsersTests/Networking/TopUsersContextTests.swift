@@ -35,7 +35,7 @@ class TopUsersContextTests: XCTestCase {
         context.retrieveTopUsers(completion: { res in
             result = res
         })
-        let user = User(displayName: "Test User", profileImage: testURL(), reputation: 1)
+        let user = User(accountId: 1, displayName: "Test User", profileImage: testURL(), reputation: 1)
         let response = UsersResponse(items: [user])
         session.receivedCompletion?(.success(response))
         let users = try result?.get()

@@ -79,6 +79,8 @@ class UserCell: UITableViewCell {
 
         bindViewModel()
 
+        selectionStyle = .none
+
         blockButton.addTarget(self, action: #selector(blockUser), for: .primaryActionTriggered)
         followActionButton.addTarget(self, action: #selector(updateFollowStatus), for: .primaryActionTriggered)
     }

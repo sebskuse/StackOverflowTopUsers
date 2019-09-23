@@ -45,6 +45,7 @@
 		962418732339126600292F98 /* sampleProfilePic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 962418722339126600292F98 /* sampleProfilePic.jpg */; };
 		962418752339128900292F98 /* MockProfileImageRetrieving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962418742339128900292F98 /* MockProfileImageRetrieving.swift */; };
 		962418772339132000292F98 /* MockUserCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962418762339132000292F98 /* MockUserCellDelegate.swift */; };
+		962418792339167D00292F98 /* HomeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962418782339167D00292F98 /* HomeDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 		962418722339126600292F98 /* sampleProfilePic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sampleProfilePic.jpg; sourceTree = "<group>"; };
 		962418742339128900292F98 /* MockProfileImageRetrieving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProfileImageRetrieving.swift; sourceTree = "<group>"; };
 		962418762339132000292F98 /* MockUserCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserCellDelegate.swift; sourceTree = "<group>"; };
+		962418782339167D00292F98 /* HomeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +229,7 @@
 				962418382338CE7A00292F98 /* TopUsersContext.swift */,
 				962418452338D9C100292F98 /* HomeViewModel.swift */,
 				962417EE2338BDA500292F98 /* HomeViewController.swift */,
+				962418782339167D00292F98 /* HomeDataSource.swift */,
 			);
 			path = "Home Screen";
 			sourceTree = "<group>";
@@ -462,6 +465,7 @@
 				962418642338F92A00292F98 /* ProfileImageContext.swift in Sources */,
 				962417EB2338BDA500292F98 /* AppDelegate.swift in Sources */,
 				962418582338ED9800292F98 /* Bindable.swift in Sources */,
+				962418792339167D00292F98 /* HomeDataSource.swift in Sources */,
 				9624184B2338DA6D00292F98 /* UserCell.swift in Sources */,
 				9624181D2338C5B700292F98 /* UsersResponse.swift in Sources */,
 				962418392338CE7A00292F98 /* TopUsersContext.swift in Sources */,

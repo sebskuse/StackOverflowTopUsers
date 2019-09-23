@@ -26,7 +26,7 @@ class ProfileImageContextTests: XCTestCase {
     }
 
     func testRetrievingAProfileImageMakesTheCorrectRequest() {
-        let user = User(displayName: "test", profileImage: testURL(), reputation: 1)
+        let user = User(accountId: 1, displayName: "test", profileImage: testURL(), reputation: 1)
         _ = context.profileImage(for: user, completion: { _ in })
         XCTAssertNotNil(session.receivedRequest as? ProfileImageRequest)
         XCTAssertEqual(session.receivedRequest?.url.absoluteString, "http://localhost.com")
@@ -36,7 +36,7 @@ class ProfileImageContextTests: XCTestCase {
         let image = try testImage(named: "sampleProfilePic")
         var result: Result<UIImage, Error>?
 
-        let user = User(displayName: "test", profileImage: testURL(), reputation: 1)
+        let user = User(accountId: 1, displayName: "test", profileImage: testURL(), reputation: 1)
         _ = context.profileImage(for: user, completion: { res in
             result = res
         })
