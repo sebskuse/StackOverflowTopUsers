@@ -36,6 +36,10 @@
 		9624185B2338F21F00292F98 /* UITableView+Dequeue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9624185A2338F21F00292F98 /* UITableView+Dequeue.swift */; };
 		9624185D2338F54500292F98 /* ProfileImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9624185C2338F54500292F98 /* ProfileImageRequest.swift */; };
 		9624185F2338F73800292F98 /* StandardResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9624185E2338F73800292F98 /* StandardResponseParser.swift */; };
+		962418612338F78D00292F98 /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962418602338F78D00292F98 /* ProfileImage.swift */; };
+		962418642338F92A00292F98 /* ProfileImageContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962418632338F92A00292F98 /* ProfileImageContext.swift */; };
+		962418662338FE6700292F98 /* ProfileImageContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962418652338FE6700292F98 /* ProfileImageContextTests.swift */; };
+		962418682339006C00292F98 /* sampleProfilePic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 962418672339006C00292F98 /* sampleProfilePic.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +99,10 @@
 		9624185A2338F21F00292F98 /* UITableView+Dequeue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Dequeue.swift"; sourceTree = "<group>"; };
 		9624185C2338F54500292F98 /* ProfileImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageRequest.swift; sourceTree = "<group>"; };
 		9624185E2338F73800292F98 /* StandardResponseParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardResponseParser.swift; sourceTree = "<group>"; };
+		962418602338F78D00292F98 /* ProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
+		962418632338F92A00292F98 /* ProfileImageContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageContext.swift; sourceTree = "<group>"; };
+		962418652338FE6700292F98 /* ProfileImageContextTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageContextTests.swift; sourceTree = "<group>"; };
+		962418672339006C00292F98 /* sampleProfilePic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = sampleProfilePic.jpg; path = WorldRemitTechTestTests/sampleProfilePic.jpg; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,7 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				962418422338D86700292F98 /* Mocks */,
-				962418202338C66200292F98 /* JSON */,
+				962418202338C66200292F98 /* Test Data */,
 				962418562338E16600292F98 /* Networking */,
 				962418552338E15700292F98 /* Home */,
 				962418032338BDA600292F98 /* Info.plist */,
@@ -185,12 +193,13 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
-		962418202338C66200292F98 /* JSON */ = {
+		962418202338C66200292F98 /* Test Data */ = {
 			isa = PBXGroup;
 			children = (
+				962418672339006C00292F98 /* sampleProfilePic.jpg */,
 				962418212338C67600292F98 /* UsersResponse.json */,
 			);
-			path = JSON;
+			path = "Test Data";
 			sourceTree = "<group>";
 		};
 		962418242338C75C00292F98 /* Frameworks */ = {
@@ -216,6 +225,7 @@
 			children = (
 				9624181C2338C5B700292F98 /* UsersResponse.swift */,
 				9624181E2338C5C300292F98 /* User.swift */,
+				962418602338F78D00292F98 /* ProfileImage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -243,6 +253,7 @@
 			children = (
 				962418482338DA6200292F98 /* UserCell.xib */,
 				9624184A2338DA6D00292F98 /* UserCell.swift */,
+				962418632338F92A00292F98 /* ProfileImageContext.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -262,6 +273,7 @@
 				962418152338BE0500292F98 /* ResponseParsingTests.swift */,
 				9624183E2338D62D00292F98 /* TopUsersRequestTests.swift */,
 				962418432338D87900292F98 /* TopUsersContextTests.swift */,
+				962418652338FE6700292F98 /* ProfileImageContextTests.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -369,6 +381,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				962418682339006C00292F98 /* sampleProfilePic.jpg in Resources */,
 				962418222338C67600292F98 /* UsersResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -426,9 +439,11 @@
 				9624185F2338F73800292F98 /* StandardResponseParser.swift in Sources */,
 				9624185B2338F21F00292F98 /* UITableView+Dequeue.swift in Sources */,
 				962418122338BDB400292F98 /* SessionErrors.swift in Sources */,
+				962418612338F78D00292F98 /* ProfileImage.swift in Sources */,
 				962417EF2338BDA500292F98 /* HomeViewController.swift in Sources */,
 				9624181F2338C5C300292F98 /* User.swift in Sources */,
 				9624185D2338F54500292F98 /* ProfileImageRequest.swift in Sources */,
+				962418642338F92A00292F98 /* ProfileImageContext.swift in Sources */,
 				962417EB2338BDA500292F98 /* AppDelegate.swift in Sources */,
 				962418582338ED9800292F98 /* Bindable.swift in Sources */,
 				9624184B2338DA6D00292F98 /* UserCell.swift in Sources */,
@@ -447,6 +462,7 @@
 				9624184F2338DBBA00292F98 /* MockTopUsersRetrieving.swift in Sources */,
 				962418542338E15300292F98 /* HomeViewControllerTests.swift in Sources */,
 				9624183F2338D62D00292F98 /* TopUsersRequestTests.swift in Sources */,
+				962418662338FE6700292F98 /* ProfileImageContextTests.swift in Sources */,
 				962418412338D84800292F98 /* MockSession.swift in Sources */,
 				962418182338BF4700292F98 /* TestHelpers.swift in Sources */,
 				9624184D2338DB7300292F98 /* HomeViewModelTests.swift in Sources */,

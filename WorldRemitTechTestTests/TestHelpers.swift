@@ -24,6 +24,17 @@ extension XCTestCase {
         }
         return try Data(contentsOf: url)
     }
+
+    func testImage(named: String) throws -> UIImage {
+        guard let url = Bundle(for: type(of: self)).url(forResource: named, withExtension: "jpg") else {
+            throw JSONLoadingError.notFound
+        }
+        let data = try Data(contentsOf: url)
+        guard let image = UIImage(data: data) else {
+            throw JSONLoadingError.notFound
+        }
+        return image
+    }
 }
 
 enum JSONLoadingError: Error {

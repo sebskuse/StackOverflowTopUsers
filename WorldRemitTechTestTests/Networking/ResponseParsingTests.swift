@@ -60,7 +60,7 @@ class ResponseParsingTests: XCTestCase {
     func testAUsersResponseCanBeParsed() throws {
         let data = try stubJSON(named: "UsersResponse")
 
-        let response: Result<UsersResponse, Error> = parser.parse(data: data, response: testURLResponse(status: 200), error: nil)
+        let response: Result<UsersResponse, Error> = UsersResponse.parse(data: data, response: testURLResponse(status: 200), error: nil)
 
         let users = try response.get()
 
