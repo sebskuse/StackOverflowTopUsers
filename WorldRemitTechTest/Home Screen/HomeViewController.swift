@@ -10,6 +10,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
     var viewModel = HomeViewModel()
+    var dataSource = HomeDataSource()
 
     @IBOutlet var tableView: UITableView!
     @IBOutlet var loadingSpinner: UIActivityIndicatorView!
@@ -17,6 +18,9 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        UserCell.register(in: tableView)
+        tableView.dataSource = dataSource
+
         viewModel.error.update = { [weak self] error in
             self?.errorLabel.isHidden = error == nil
             self?.tableView.isHidden = error != nil
@@ -30,6 +34,25 @@ class HomeViewController: UIViewController {
             }
         }
 
+        viewModel.users.update = { [weak self] users in
+            self?.dataSource.users = users
+            self?.tableView.reloadData()
+        }
+
         viewModel.fetchUsers()
+    }
+}
+
+class HomeDataSource: NSObject, UITableViewDataSource {
+    var users: [User] = []
+
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
+        return users.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: UserCell = tableView.dequeue(for: indexPath)
+        cell.viewModel.model = users[indexPath.row]
+        return cell
     }
 }

@@ -54,4 +54,16 @@ class HomeViewControllerTests: XCTestCase {
         XCTAssertTrue(viewController.errorLabel.isHidden)
         XCTAssertNil(viewController.errorLabel.text)
     }
+
+    func testWhenUsersAreLoadedThereAreCellsForEachUser() {
+        let users = [
+            User(displayName: "Test", profileImage: testURL(), reputation: 1),
+            User(displayName: "Test2", profileImage: testURL(), reputation: 2),
+        ]
+        viewController.loadViewIfNeeded()
+        mockContext.receivedCompletion?(.success(users))
+        XCTAssertEqual(viewController.tableView.numberOfRows(inSection: 0), 2)
+        let cell = viewController.tableView.cellForRow(at: IndexPath(row: 0, section: 0))
+        XCTAssertNotNil(cell as? UserCell)
+    }
 }
