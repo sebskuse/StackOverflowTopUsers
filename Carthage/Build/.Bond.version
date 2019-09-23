@@ -1,0 +1,10 @@
+{
+  "commitish" : "7.6.0",
+  "iOS" : [
+    {
+      "name" : "Bond",
+      "hash" : "7646beb99aacf3313266f137b136b2a5400944fceff30b5727204c0ba5334448",
+      "swiftToolchainVersion" : "5.1 (swiftlang-1100.0.270.13 clang-1100.0.33.7)"
+    }
+  ]
+}
