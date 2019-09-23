@@ -47,4 +47,43 @@ class ProfileImageContextTests: XCTestCase {
 
         XCTAssertNotNil(receivedImage)
     }
+
+    func testAttemptingToParseNoDataReturnsTheCorrectError() throws {
+        let result = ProfileImage.parse(data: nil, response: nil, error: nil)
+        guard case let .failure(error) = result, let err = error as? SessionError else {
+            XCTFail("Did not get a failure")
+            return
+        }
+        guard case .noData = err else {
+            XCTFail("Incorrect error received")
+            return
+        }
+    }
+
+    func testPassingANonHTTPResponseReturnsTheCorrectError() throws {
+        let data = "{}".data(using: .utf8)!
+        let urlResponse = URLResponse(url: testURL(), mimeType: nil, expectedContentLength: 1, textEncodingName: nil)
+        let response = ProfileImage.parse(data: data, response: urlResponse, error: nil)
+
+        guard case let .failure(error) = response, let err = error as? SessionError else {
+            XCTFail("Did not get a failure")
+            return
+        }
+        guard case .invalidResponse = err else {
+            XCTFail("Incorrect error received")
+            return
+        }
+    }
+
+    func testPassingJunkNonImageDataReturnsTheCorrectFailure() throws {
+        let result = ProfileImage.parse(data: Data(), response: testURLResponse(status: 200), error: nil)
+        guard case let .failure(error) = result, let err = error as? ImageError else {
+            XCTFail("Did not get a failure")
+            return
+        }
+        guard case .unableToCreateImage = err else {
+            XCTFail("Incorrect error received")
+            return
+        }
+    }
 }
