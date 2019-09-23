@@ -28,6 +28,8 @@
 		962418332338C85D00292F98 /* ReactiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9624182B2338C78700292F98 /* ReactiveKit.framework */; };
 		962418342338C85D00292F98 /* ReactiveKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9624182B2338C78700292F98 /* ReactiveKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		962418362338CA2D00292F98 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 962418252338C75D00292F98 /* Nimble.framework */; };
+		9624183D2338D0CB00292F98 /* TopUsersRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9624183C2338D0CB00292F98 /* TopUsersRequest.swift */; };
+		9624183F2338D62D00292F98 /* TopUsersRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9624183E2338D62D00292F98 /* TopUsersRequestTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +81,8 @@
 		962418272338C77100292F98 /* Bond.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bond.framework; path = Carthage/Build/iOS/Bond.framework; sourceTree = "<group>"; };
 		962418292338C77E00292F98 /* Differ.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Differ.framework; path = Carthage/Build/iOS/Differ.framework; sourceTree = "<group>"; };
 		9624182B2338C78700292F98 /* ReactiveKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveKit.framework; path = Carthage/Build/iOS/ReactiveKit.framework; sourceTree = "<group>"; };
+		9624183C2338D0CB00292F98 /* TopUsersRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopUsersRequest.swift; sourceTree = "<group>"; };
+		9624183E2338D62D00292F98 /* TopUsersRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopUsersRequestTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +129,7 @@
 		962417E92338BDA500292F98 /* WorldRemitTechTest */ = {
 			isa = PBXGroup;
 			children = (
+				9624183A2338D0AA00292F98 /* Model */,
 				9624181B2338C58000292F98 /* Networking */,
 				962417EA2338BDA500292F98 /* AppDelegate.swift */,
 				962417EE2338BDA500292F98 /* ViewController.swift */,
@@ -143,6 +148,7 @@
 				962418032338BDA600292F98 /* Info.plist */,
 				962418152338BE0500292F98 /* ResponseParsingTests.swift */,
 				962418172338BF4700292F98 /* TestHelpers.swift */,
+				9624183E2338D62D00292F98 /* TopUsersRequestTests.swift */,
 			);
 			path = WorldRemitTechTestTests;
 			sourceTree = "<group>";
@@ -162,8 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				9624180C2338BDB400292F98 /* Client */,
-				9624181C2338C5B700292F98 /* UsersResponse.swift */,
-				9624181E2338C5C300292F98 /* User.swift */,
+				9624183B2338D0B900292F98 /* Requests */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -185,6 +190,23 @@
 				962418252338C75D00292F98 /* Nimble.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9624183A2338D0AA00292F98 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9624181C2338C5B700292F98 /* UsersResponse.swift */,
+				9624181E2338C5C300292F98 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9624183B2338D0B900292F98 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				9624183C2338D0CB00292F98 /* TopUsersRequest.swift */,
+			);
+			path = Requests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,6 +353,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9624183D2338D0CB00292F98 /* TopUsersRequest.swift in Sources */,
 				962418112338BDB400292F98 /* Session.swift in Sources */,
 				962418132338BDB400292F98 /* Request.swift in Sources */,
 				962418122338BDB400292F98 /* SessionErrors.swift in Sources */,
@@ -347,6 +370,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				962418162338BE0500292F98 /* ResponseParsingTests.swift in Sources */,
+				9624183F2338D62D00292F98 /* TopUsersRequestTests.swift in Sources */,
 				962418182338BF4700292F98 /* TestHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
