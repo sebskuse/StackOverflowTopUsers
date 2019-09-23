@@ -18,6 +18,16 @@
 		962418142338BDB400292F98 /* ResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962418102338BDB400292F98 /* ResponseParser.swift */; };
 		962418162338BE0500292F98 /* ResponseParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962418152338BE0500292F98 /* ResponseParsingTests.swift */; };
 		962418182338BF4700292F98 /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962418172338BF4700292F98 /* TestHelpers.swift */; };
+		9624181D2338C5B700292F98 /* UsersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9624181C2338C5B700292F98 /* UsersResponse.swift */; };
+		9624181F2338C5C300292F98 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9624181E2338C5C300292F98 /* User.swift */; };
+		962418222338C67600292F98 /* UsersResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 962418212338C67600292F98 /* UsersResponse.json */; };
+		9624182E2338C85A00292F98 /* Bond.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 962418272338C77100292F98 /* Bond.framework */; };
+		9624182F2338C85A00292F98 /* Bond.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 962418272338C77100292F98 /* Bond.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		962418312338C85B00292F98 /* Differ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 962418292338C77E00292F98 /* Differ.framework */; };
+		962418322338C85B00292F98 /* Differ.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 962418292338C77E00292F98 /* Differ.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		962418332338C85D00292F98 /* ReactiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9624182B2338C78700292F98 /* ReactiveKit.framework */; };
+		962418342338C85D00292F98 /* ReactiveKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9624182B2338C78700292F98 /* ReactiveKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		962418362338CA2D00292F98 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 962418252338C75D00292F98 /* Nimble.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +39,22 @@
 			remoteInfo = WorldRemitTechTest;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		962418302338C85A00292F98 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				962418322338C85B00292F98 /* Differ.framework in Embed Frameworks */,
+				962418342338C85D00292F98 /* ReactiveKit.framework in Embed Frameworks */,
+				9624182F2338C85A00292F98 /* Bond.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		962417E72338BDA500292F98 /* WorldRemitTechTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldRemitTechTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,6 +72,13 @@
 		962418102338BDB400292F98 /* ResponseParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseParser.swift; sourceTree = "<group>"; };
 		962418152338BE0500292F98 /* ResponseParsingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseParsingTests.swift; sourceTree = "<group>"; };
 		962418172338BF4700292F98 /* TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
+		9624181C2338C5B700292F98 /* UsersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersResponse.swift; sourceTree = "<group>"; };
+		9624181E2338C5C300292F98 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		962418212338C67600292F98 /* UsersResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = UsersResponse.json; sourceTree = "<group>"; };
+		962418252338C75D00292F98 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		962418272338C77100292F98 /* Bond.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bond.framework; path = Carthage/Build/iOS/Bond.framework; sourceTree = "<group>"; };
+		962418292338C77E00292F98 /* Differ.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Differ.framework; path = Carthage/Build/iOS/Differ.framework; sourceTree = "<group>"; };
+		9624182B2338C78700292F98 /* ReactiveKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveKit.framework; path = Carthage/Build/iOS/ReactiveKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +86,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9624182E2338C85A00292F98 /* Bond.framework in Frameworks */,
+				962418332338C85D00292F98 /* ReactiveKit.framework in Frameworks */,
+				962418312338C85B00292F98 /* Differ.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				962418362338CA2D00292F98 /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +109,7 @@
 				962417E92338BDA500292F98 /* WorldRemitTechTest */,
 				962418002338BDA600292F98 /* WorldRemitTechTestTests */,
 				962417E82338BDA500292F98 /* Products */,
+				962418242338C75C00292F98 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -87,7 +125,7 @@
 		962417E92338BDA500292F98 /* WorldRemitTechTest */ = {
 			isa = PBXGroup;
 			children = (
-				9624180C2338BDB400292F98 /* Client */,
+				9624181B2338C58000292F98 /* Networking */,
 				962417EA2338BDA500292F98 /* AppDelegate.swift */,
 				962417EE2338BDA500292F98 /* ViewController.swift */,
 				962417F02338BDA500292F98 /* Main.storyboard */,
@@ -101,6 +139,7 @@
 		962418002338BDA600292F98 /* WorldRemitTechTestTests */ = {
 			isa = PBXGroup;
 			children = (
+				962418202338C66200292F98 /* JSON */,
 				962418032338BDA600292F98 /* Info.plist */,
 				962418152338BE0500292F98 /* ResponseParsingTests.swift */,
 				962418172338BF4700292F98 /* TestHelpers.swift */,
@@ -119,6 +158,35 @@
 			path = Client;
 			sourceTree = "<group>";
 		};
+		9624181B2338C58000292F98 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				9624180C2338BDB400292F98 /* Client */,
+				9624181C2338C5B700292F98 /* UsersResponse.swift */,
+				9624181E2338C5C300292F98 /* User.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		962418202338C66200292F98 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				962418212338C67600292F98 /* UsersResponse.json */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		962418242338C75C00292F98 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9624182B2338C78700292F98 /* ReactiveKit.framework */,
+				962418292338C77E00292F98 /* Differ.framework */,
+				962418272338C77100292F98 /* Bond.framework */,
+				962418252338C75D00292F98 /* Nimble.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -131,6 +199,7 @@
 				962417E32338BDA500292F98 /* Sources */,
 				962417E42338BDA500292F98 /* Frameworks */,
 				962417E52338BDA500292F98 /* Resources */,
+				962418302338C85A00292F98 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -212,6 +281,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				962418222338C67600292F98 /* UsersResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,7 +335,9 @@
 				962418132338BDB400292F98 /* Request.swift in Sources */,
 				962418122338BDB400292F98 /* SessionErrors.swift in Sources */,
 				962417EF2338BDA500292F98 /* ViewController.swift in Sources */,
+				9624181F2338C5C300292F98 /* User.swift in Sources */,
 				962417EB2338BDA500292F98 /* AppDelegate.swift in Sources */,
+				9624181D2338C5B700292F98 /* UsersResponse.swift in Sources */,
 				962418142338BDB400292F98 /* ResponseParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -429,6 +501,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 32S28VR3SV;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = WorldRemitTechTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -448,6 +524,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 32S28VR3SV;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = WorldRemitTechTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -468,12 +548,17 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 32S28VR3SV;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = WorldRemitTechTestTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
+					"$(SRCROOT)/Carthage/Build/iOS",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sebskuse.WorldRemitTechTestTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -490,12 +575,17 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 32S28VR3SV;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = WorldRemitTechTestTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
+					"$(SRCROOT)/Carthage/Build/iOS",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sebskuse.WorldRemitTechTestTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

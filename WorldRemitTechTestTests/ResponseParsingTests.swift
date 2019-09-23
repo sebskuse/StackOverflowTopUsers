@@ -6,6 +6,7 @@
 //  Copyright © 2019 Seb Skuse. All rights reserved.
 //
 
+import Nimble
 @testable import WorldRemitTechTest
 import XCTest
 
@@ -39,7 +40,7 @@ class ResponseParsingTests: XCTestCase {
         let data = "{}".data(using: .utf8)!
         let response: Result<EmptyResponse, Error> = parser.parse(data: data, response: testURLResponse(status: 200), error: nil)
 
-        XCTAssertNotNil(try response.get())
+        expect(try response.get()).notTo(beNil())
     }
 
     // MARK: - Non-matching types
@@ -52,7 +53,22 @@ class ResponseParsingTests: XCTestCase {
             XCTFail("Did not get an error")
             return
         }
-        XCTAssertNotNil(error as? DecodingError)
+        expect(error as? DecodingError).notTo(beNil())
+    }
+
+    // MARK: - Parsing users
+
+    func testAUsersResponseCanBeParsed() throws {
+        let data = try stubJSON(named: "UsersResponse")
+
+        let response: Result<UsersResponse, Error> = parser.parse(data: data, response: testURLResponse(status: 200), error: nil)
+
+        let users = try response.get()
+
+        expect(users.items).to(haveCount(20))
+        expect(users.items.first?.displayName).to(equal("Jon Skeet"))
+        expect(users.items.first?.profileImage.absoluteString).to(equal("https://www.gravatar.com/avatar/6d8ebb117e8d83d74ea95fbdd0f87e13?s=128&d=identicon&r=PG"))
+        expect(users.items.first?.reputation).to(equal(1_132_941))
     }
 
     // MARK: - Errors
@@ -73,7 +89,7 @@ class ResponseParsingTests: XCTestCase {
             XCTFail("Did not receive a server error")
             return
         }
-        XCTAssertEqual(code, 500)
+        expect(code).to(equal(500))
     }
 }
 
