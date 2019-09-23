@@ -9,6 +9,16 @@
 import Foundation
 import UIKit
 
+class UserState {
+    let user: User
+    var expanded: Bool
+
+    init(user: User, expanded: Bool = false) {
+        self.user = user
+        self.expanded = expanded
+    }
+}
+
 class UserCellViewModel {
     private let imageContext: ProfileImageRetrieving
     private var cancellable: Cancellable?
@@ -16,14 +26,16 @@ class UserCellViewModel {
     let username = Bindable<String?>(nil)
     let reputation = Bindable<String?>(nil)
     let profileImage = Bindable<UIImage?>(nil)
+    let expanded = Bindable<Bool>(false)
 
-    var model: User? {
+    var model: UserState? {
         didSet {
             guard let user = model else { return }
-            username.value = user.displayName
-            reputation.value = "Reputation: \(String(describing: user.reputation))"
+            username.value = user.user.displayName
+            reputation.value = "Reputation: \(String(describing: user.user.reputation))"
+            expanded.value = user.expanded
 
-            cancellable = imageContext.profileImage(for: user, completion: { [weak self] res in
+            cancellable = imageContext.profileImage(for: user.user, completion: { [weak self] res in
                 self?.profileImage.value = try? res.get()
             })
         }
@@ -43,6 +55,7 @@ class UserCell: UITableViewCell {
     @IBOutlet var profileImageView: UIImageView!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var reputationLabel: UILabel!
+    @IBOutlet var actionsContainer: UIView!
 
     var viewModel = UserCellViewModel() {
         didSet {
@@ -67,6 +80,10 @@ class UserCell: UITableViewCell {
 
         viewModel.profileImage.update = { [weak self] image in
             self?.profileImageView.image = image
+        }
+
+        viewModel.expanded.update = { [weak self] expanded in
+            self?.actionsContainer.isHidden = !expanded
         }
     }
 

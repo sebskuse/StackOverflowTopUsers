@@ -32,19 +32,19 @@ class UserCellTests: XCTestCase {
 
     func testWhenAUserIsSetTheProfileImageIsRetrieved() {
         XCTAssertNil(imageRetriever.receivedUser)
-        cell.viewModel.model = User(displayName: "Test", profileImage: testURL(), reputation: 1)
+        cell.viewModel.model = UserState(user: User(displayName: "Test", profileImage: testURL(), reputation: 1))
         XCTAssertEqual(imageRetriever.receivedUser?.displayName, "Test")
     }
 
     func testWhenAValidImageIsReturnedItIsSetInTheCell() throws {
-        cell.viewModel.model = User(displayName: "Test", profileImage: testURL(), reputation: 1)
+        cell.viewModel.model = UserState(user: User(displayName: "Test", profileImage: testURL(), reputation: 1))
         let image = try testImage(named: "sampleProfilePic")
         imageRetriever.receivedCompletion?(.success(image))
         XCTAssertEqual(image, cell.profileImageView.image)
     }
 
     func testIfTheCellIsReusedWhileARequestIsInProgressItGetsCancelled() {
-        cell.viewModel.model = User(displayName: "Test", profileImage: testURL(), reputation: 1)
+        cell.viewModel.model = UserState(user: User(displayName: "Test", profileImage: testURL(), reputation: 1))
         cell.prepareForReuse()
         XCTAssertTrue(cancellable.receivedCancel)
     }

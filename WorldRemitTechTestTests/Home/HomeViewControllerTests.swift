@@ -56,14 +56,41 @@ class HomeViewControllerTests: XCTestCase {
     }
 
     func testWhenUsersAreLoadedThereAreCellsForEachUser() {
+        givenUsersHaveLoaded()
+        XCTAssertEqual(viewController.tableView.numberOfRows(inSection: 0), 2)
+        let cell = viewController.tableView.cellForRow(at: IndexPath(row: 0, section: 0))
+        XCTAssertNotNil(cell as? UserCell)
+    }
+
+    func testTappingARowExpandsIt() throws {
+        givenUsersHaveLoaded()
+        var cell = try givenACell()
+        XCTAssertFalse(cell.viewModel.expanded.value)
+
+        viewController.tableView.delegate?.tableView?(viewController.tableView, didSelectRowAt: IndexPath(row: 0, section: 0))
+
+        cell = try givenACell()
+
+        XCTAssertTrue(cell.viewModel.expanded.value)
+    }
+
+    private func givenACell() throws -> UserCell {
+        enum DequeueError: Error {
+            case noCell
+        }
+        guard let cell = viewController.tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? UserCell else {
+            XCTFail("Could not dequeue cell")
+            throw DequeueError.noCell
+        }
+        return cell
+    }
+
+    private func givenUsersHaveLoaded() {
         let users = [
             User(displayName: "Test", profileImage: testURL(), reputation: 1),
             User(displayName: "Test2", profileImage: testURL(), reputation: 2),
         ]
         viewController.loadViewIfNeeded()
         mockContext.receivedCompletion?(.success(users))
-        XCTAssertEqual(viewController.tableView.numberOfRows(inSection: 0), 2)
-        let cell = viewController.tableView.cellForRow(at: IndexPath(row: 0, section: 0))
-        XCTAssertNotNil(cell as? UserCell)
     }
 }
