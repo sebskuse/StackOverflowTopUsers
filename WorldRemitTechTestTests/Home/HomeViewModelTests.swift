@@ -53,6 +53,10 @@ class HomeViewModelTests: XCTestCase {
     }
 }
 
-enum MockError: Error {
+enum MockError: LocalizedError {
     case test
+
+    var errorDescription: String? {
+        return "Mock Error"
+    }
 }

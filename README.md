@@ -11,3 +11,6 @@ I've included a sample response in the testing bundle so we can validate tests a
 
 ## TopUsersContext
 `Context`s wrap data fetching functionality for a View Model, creating a separation between making a network request and receiving data. These can be stubbed out in tests to just return the data.
+
+## Home screen
+I'm using Bond's Reactive `UITableView` binding here to cut down on the amount of code you have to review - i'm happy using reactive bindings for this sort of thing or using datasource / delegate objects.
