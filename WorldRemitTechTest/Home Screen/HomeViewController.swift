@@ -6,7 +6,6 @@
 //  Copyright © 2019 Seb Skuse. All rights reserved.
 //
 
-import Bond
 import UIKit
 
 class HomeViewController: UIViewController {
@@ -18,14 +17,17 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        viewModel.error.map { $0 == nil }.bind(to: errorLabel.reactive.isHidden)
-        viewModel.error.map { $0 != nil }.bind(to: tableView.reactive.isHidden)
-        viewModel.error.map { $0?.message }.bind(to: errorLabel.reactive.text)
-        viewModel.isLoading.bind(to: loadingSpinner.reactive.isAnimating)
-
-        viewModel.users.bind(to: tableView, cellType: UserCell.self) { cell, user in
-            cell.viewModel.model = user
+        viewModel.error.update = { [weak self] error in
+            self?.errorLabel.isHidden = error == nil
+            self?.tableView.isHidden = error != nil
+            self?.errorLabel.text = error?.message
+        }
+        viewModel.isLoading.update = { [weak self] loading in
+            if loading {
+                self?.loadingSpinner.startAnimating()
+            } else {
+                self?.loadingSpinner.stopAnimating()
+            }
         }
 
         viewModel.fetchUsers()

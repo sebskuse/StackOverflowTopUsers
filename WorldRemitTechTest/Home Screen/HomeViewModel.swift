@@ -6,15 +6,14 @@
 //  Copyright © 2019 Seb Skuse. All rights reserved.
 //
 
-import Bond
 import Foundation
 
 class HomeViewModel {
     private let context: TopUsersRetrieving
 
-    let users = Observable<[User]>([])
-    let isLoading = Observable<Bool>(false)
-    let error = Observable<DisplayableError?>(nil)
+    let users = Bindable<[User]>([])
+    let isLoading = Bindable<Bool>(false)
+    let error = Bindable<DisplayableError?>(nil)
 
     init(context: TopUsersRetrieving = TopUsersContext()) {
         self.context = context
